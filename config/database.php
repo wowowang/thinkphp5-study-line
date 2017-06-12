@@ -13,9 +13,9 @@ return [
     // 数据库类型
     'type'            => 'mysql',
     // 服务器地址
-    'hostname'        => 'localhst',
+    'hostname'        => 'localhost',
     // 数据库名
-    'database'        => 'thinkphp5-study-line',
+    'database'        => 'tp5',
     // 用户名
     'username'        => 'root',
     // 密码
