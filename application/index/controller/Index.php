@@ -2,6 +2,7 @@
 namespace app\index\controller;
 
 use FFMpeg\FFMpeg;
+use think\Config;
 use think\Controller;
 use think\Db;
 use think\Request;
@@ -19,6 +20,14 @@ class Index extends Controller
     {
         $res = Db::query('select * from tour_admin_node where id=?', [166]);
         print_r($res);
+        echo Config::get('default_module');
+        echo Config::get('database.database');
+        dump(config::get());
+    }
+
+    public function read(){
+        $id = Request::instance()->get('id');
+        return "read:".$id;
     }
 
 
