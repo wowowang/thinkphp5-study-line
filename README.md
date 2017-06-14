@@ -1,6 +1,6 @@
 # thinkphp5-study-line
 thinkphp5-study-line
-
+ffmpeg
 ##  定义独立的配置目录 
 ```bash
 ├─application         应用目录
