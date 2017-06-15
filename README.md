@@ -12,3 +12,6 @@ ffmpeg
 │  │  ├─config.php    index模块配置文件
 │  │  └─database.php  index模块数据库配置文件
 ```
+
+##   PHPer这样写代码也许更优雅
+
