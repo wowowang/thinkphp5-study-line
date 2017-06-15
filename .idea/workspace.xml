@@ -223,7 +223,7 @@
       <updated>1497236510949</updated>
       <workItem from="1497236512339" duration="5438000" />
       <workItem from="1497403406480" duration="2592000" />
-      <workItem from="1497488810438" duration="993000" />
+      <workItem from="1497488810438" duration="1078000" />
     </task>
     <task id="LOCAL-00001" summary="定义独立的配置目录">
       <created>1497238396213</created>
@@ -250,7 +250,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9023000" />
+    <option name="totallyTimeSpent" value="9108000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="1" />
