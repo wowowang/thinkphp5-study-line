@@ -14,3 +14,16 @@
 function phalconInfo($parm){
     return $parm +10;
 }
+
+function get_uri($url)
+{
+    $ch = curl_init() or die (curl_error());
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 360);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    //显示获得的数据
+    return $response;
+}

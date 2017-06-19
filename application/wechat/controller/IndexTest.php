@@ -7,7 +7,7 @@ use think\Request;
 
 class Index extends Controller
 {
-    public function index()
+    public function server()
     {
         $options = [
             'debug'  => true,
@@ -35,7 +35,7 @@ class Index extends Controller
      * 这个页面是用户进来就能够刚问的页面，也就是首次进来的页面
      * 首先访问的地址 ；http://wechatu.xd107.com/home/WeiXin/index
      */
-    public function index3()
+    public function index()
     {
         $appid = 'wx94c43716d8a91f3f';
         /*基本授权 方法跳转地址*/

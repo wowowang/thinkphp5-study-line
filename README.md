@@ -15,7 +15,8 @@ ffmpeg
 │  │  ├─config.php    index模块配置文件
 │  │  └─database.php  index模块数据库配置文件
 ```
-
++   自己封装的函数写在helper.php 文件中
 ##   PHPer这样写代码也许更优雅
 +   master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活
->>>>>>> Stashed changes
+##  微信
++   网页授权
