@@ -1,14 +1,19 @@
 <?php
 namespace app\wechat\controller;
 
+<<<<<<< HEAD
 use EasyWeChat\Foundation\Application;
 use think\Controller;
 use think\Request;
 
+=======
+use think\Controller;
+>>>>>>> adba88997c4e28081d3e9f28951127531908de10
 class Index extends Controller
 {
     public function index()
     {
+<<<<<<< HEAD
         $options = [
             'debug'  => true,
             'app_id' => 'wx94c43716d8a91f3f',
@@ -77,4 +82,10 @@ class Index extends Controller
     }
 
 
+=======
+        $data = ['name' => 'Wechat', 'url' => 'thinkphp.cn'];
+        return json(['data' => $data, 'code' => 1, 'message' => 'wechat code']);
+    }
+
+>>>>>>> adba88997c4e28081d3e9f28951127531908de10
 }
