@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="e73c146f-582d-4c22-bec5-d78d39e1ac8f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 <<<<<<< HEAD
@@ -9,6 +10,9 @@
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+=======
+    <list default="true" id="e73c146f-582d-4c22-bec5-d78d39e1ac8f" name="Default" comment="" />
+>>>>>>> home
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,12 +27,17 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
 <<<<<<< HEAD
+<<<<<<< HEAD
               <first_editor relative-caret-position="357">
                 <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
 =======
               <first_editor relative-caret-position="272">
                 <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+              <first_editor relative-caret-position="221">
+                <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+>>>>>>> home
                 <folding />
               </first_editor>
               <second_editor />
@@ -36,6 +45,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/wechat/controller/Index.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -53,6 +63,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> home
       <file leaf-file-name="common.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/common.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,6 +82,7 @@
               <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding>
                 <element signature="n#phalconInfo#0;n#!!top" expanded="true" />
+<<<<<<< HEAD
                 <element signature="n#get_uri#0;n#!!top" expanded="true" />
 =======
             <state relative-caret-position="34">
@@ -78,6 +91,8 @@
                 <element signature="e#62#280#0#PHP" expanded="true" />
                 <element signature="e#99#277#0#PHP" expanded="true" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
               </folding>
             </state>
           </provider>
@@ -104,10 +119,15 @@
         <option value="$PROJECT_DIR$/application/index/controller/Test.php" />
         <option value="$PROJECT_DIR$/application/index/controller/WeiXin.php" />
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/application/helper.php" />
         <option value="$PROJECT_DIR$/application/wechat/controller/IndexTest.php" />
 =======
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+        <option value="$PROJECT_DIR$/application/helper.php" />
+        <option value="$PROJECT_DIR$/application/wechat/controller/IndexTest.php" />
+>>>>>>> home
         <option value="$PROJECT_DIR$/application/wechat/controller/Index.php" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
@@ -119,7 +139,10 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+<<<<<<< HEAD
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+=======
+>>>>>>> home
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
@@ -142,12 +165,17 @@
     </navigator>
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="Scope" />
 =======
       <pane id="Scope" />
       <pane id="Scratches" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+      <pane id="Scratches" />
+      <pane id="Scope" />
+>>>>>>> home
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -171,6 +199,9 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
               <option name="myItemId" value="vendor" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -224,22 +255,28 @@
               <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+<<<<<<< HEAD
 =======
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
           </PATH>
         </subPane>
       </pane>
     </panes>
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
     <property name="WebServerToolWindowFactoryState" value="false" />
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../PHP_Experience" />
   </component>
+=======
+>>>>>>> home
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\thinkphp5-study-line\config\tmp" />
@@ -249,17 +286,21 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\wamp64\www\thinkphp5-study-line\application\wechat\controller" />
+<<<<<<< HEAD
 =======
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
       <recent name="D:\wamp64\www\thinkphp5-study-line\application" />
       <recent name="D:\wamp64\www\thinkphp5-study-line\application\index\controller" />
       <recent name="D:\wamp64\www\thinkphp5-study-line\application\ffmpeg" />
       <recent name="D:\wamp64\www\thinkphp5-study-line\config\index" />
     </key>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
     <key name="MoveFile.RECENT_KEYS">
@@ -268,6 +309,8 @@
       <recent name="D:\wamp64\www\thinkphp5-study-line\application\config" />
     </key>
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -363,11 +406,16 @@
       <workItem from="1497236512339" duration="5438000" />
       <workItem from="1497403406480" duration="2592000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1497488810438" duration="3151000" />
       <workItem from="1497854375233" duration="6817000" />
 =======
       <workItem from="1497488810438" duration="1419000" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+      <workItem from="1497488810438" duration="3151000" />
+      <workItem from="1497854375233" duration="7153000" />
+>>>>>>> home
     </task>
     <task id="LOCAL-00001" summary="定义独立的配置目录">
       <created>1497238396213</created>
@@ -391,6 +439,9 @@
       <updated>1497240585025</updated>
     </task>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
     <task id="LOCAL-00004" summary="$message">
       <created>1497855647151</created>
       <option name="number" value="00004" />
@@ -402,12 +453,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="17998000" />
+=======
+    <option name="totallyTimeSpent" value="18334000" />
+>>>>>>> home
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25799572" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+<<<<<<< HEAD
 =======
     <option name="localTasksCounter" value="4" />
     <servers />
@@ -421,15 +477,21 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2553305" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
 =======
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -437,6 +499,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -445,9 +509,13 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 =======
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> home
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -460,11 +528,16 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="定义独立的配置目录" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <MESSAGE value="$message" />
     <option name="LAST_COMMIT_MESSAGE" value="$message" />
 =======
     <option name="LAST_COMMIT_MESSAGE" value="定义独立的配置目录" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+    <MESSAGE value="$message" />
+    <option name="LAST_COMMIT_MESSAGE" value="$message" />
+>>>>>>> home
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -474,6 +547,7 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state split_layout="FIRST">
           <first_editor relative-caret-position="340">
             <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
@@ -482,6 +556,11 @@
           <first_editor relative-caret-position="0">
             <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="340">
+            <caret line="20" column="23" lean-forward="false" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+>>>>>>> home
             <folding />
           </first_editor>
           <second_editor />
@@ -491,21 +570,30 @@
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state relative-caret-position="255">
           <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="17" />
 =======
         <state relative-caret-position="153">
           <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="41" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+        <state relative-caret-position="255">
+          <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="17" />
+>>>>>>> home
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/config/tmp/easywechat.log">
 =======
     <entry file="file://$PROJECT_DIR$/application/index/controller/Index.php">
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+    <entry file="file://$PROJECT_DIR$/config/tmp/easywechat.log">
+>>>>>>> home
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -514,10 +602,14 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/application/wechat/controller/Index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
           <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#40#78#0#PHP" expanded="true" />
             <element signature="e#158#801#0#PHP" expanded="true" />
@@ -525,6 +617,9 @@
             <element signature="e#809#942#0#PHP" expanded="true" />
             <element signature="e#1648#2851#0#PHP" expanded="true" />
           </folding>
+=======
+          <folding />
+>>>>>>> home
         </state>
       </provider>
     </entry>
@@ -543,28 +638,40 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="41" />
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/application/index/controller/RequestDemo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="63" column="45" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="45" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/index/controller/Index.php" />
     <entry file="file://$PROJECT_DIR$/application/index/controller/RequestDemo.php" />
 =======
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+    <entry file="file://$PROJECT_DIR$/application/index/controller/Index.php" />
+    <entry file="file://$PROJECT_DIR$/application/index/controller/RequestDemo.php" />
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/application/route.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="22" column="42" lean-forward="true" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#6#80#0#PHP" expanded="false" />
           </folding>
+=======
+          <folding />
+>>>>>>> home
         </state>
       </provider>
     </entry>
@@ -573,13 +680,18 @@
         <state relative-caret-position="850">
           <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="19" />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <folding />
 =======
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+          <folding />
+>>>>>>> home
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/api/controller/Notify.php" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/config/index/config.php" />
     <entry file="file://$PROJECT_DIR$/application/index/controller/DbDemo.php" />
@@ -604,6 +716,10 @@
       </provider>
     </entry>
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+    <entry file="file://$PROJECT_DIR$/application/config/index/config.php" />
+    <entry file="file://$PROJECT_DIR$/application/index/controller/DbDemo.php" />
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/application/config/index/database.php" />
     <entry file="file://$PROJECT_DIR$/config/index/database.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -620,6 +736,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/api/controller/Index.php" />
 =======
     <entry file="file://$PROJECT_DIR$/application/api/controller/Index.php">
@@ -631,14 +748,21 @@
       </provider>
     </entry>
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+    <entry file="file://$PROJECT_DIR$/application/api/controller/Index.php" />
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="17" column="29" lean-forward="false" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <folding />
 =======
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+          <folding />
+>>>>>>> home
         </state>
       </provider>
     </entry>
@@ -647,9 +771,13 @@
         <state relative-caret-position="-425">
           <caret line="58" column="19" lean-forward="false" selection-start-line="58" selection-start-column="5" selection-end-line="58" selection-end-column="19" />
 <<<<<<< HEAD
+<<<<<<< HEAD
           <folding />
 =======
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+          <folding />
+>>>>>>> home
         </state>
       </provider>
     </entry>
@@ -657,6 +785,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="42" lean-forward="false" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#6#80#0#PHP" expanded="false" />
           </folding>
@@ -664,6 +793,12 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+=======
+          <folding />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/application/index/controller/RequestDemo.php" />
     <entry file="file://$PROJECT_DIR$/media/windows-10.jpg" />
     <entry file="file://$PROJECT_DIR$/application/ffmpeg/controller/Index.php" />
@@ -684,32 +819,44 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="139" column="11" lean-forward="false" selection-start-line="139" selection-start-column="11" selection-end-line="139" selection-end-column="11" />
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/application/index/controller/RequestDemo.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="63" column="45" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="45" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/config/tmp/easywechat.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="17" column="41" lean-forward="false" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="41" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/vendor/overtrue/wechat/src/Foundation/Application.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-188">
@@ -724,6 +871,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
           <caret line="38" column="17" lean-forward="false" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="17" />
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/media/windows-10.jpg">
       <provider selected="true" editor-type-id="images">
@@ -735,48 +883,68 @@
         <state relative-caret-position="645">
           <caret line="45" column="54" lean-forward="false" selection-start-line="45" selection-start-column="54" selection-end-line="45" selection-end-column="54" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="15" column="17" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="17" />
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/application/index/controller/Index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="64" lean-forward="false" selection-start-line="15" selection-start-column="64" selection-end-line="15" selection-end-column="64" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/application/common.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="9" lean-forward="false" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
+<<<<<<< HEAD
 =======
     <entry file="file://$PROJECT_DIR$/application/index/controller/WeiXin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+>>>>>>> home
           <folding />
         </state>
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> home
     <entry file="file://$PROJECT_DIR$/application/helper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding>
             <element signature="n#phalconInfo#0;n#!!top" expanded="true" />
+<<<<<<< HEAD
             <element signature="n#get_uri#0;n#!!top" expanded="true" />
+=======
+>>>>>>> home
           </folding>
         </state>
       </provider>
@@ -785,6 +953,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1138">
           <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+<<<<<<< HEAD
           <folding>
             <element signature="e#40#78#0#PHP" expanded="true" />
             <element signature="e#121#2855#0#PHP" expanded="true" />
@@ -801,11 +970,15 @@
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="13" />
           <folding />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+          <folding />
+>>>>>>> home
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/wechat/controller/Index.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state relative-caret-position="238">
           <caret line="38" column="5" lean-forward="false" selection-start-line="38" selection-start-column="5" selection-end-line="38" selection-end-column="5" />
@@ -823,6 +996,11 @@
             <element signature="e#99#277#0#PHP" expanded="true" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
           </folding>
+=======
+        <state relative-caret-position="323">
+          <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding />
+>>>>>>> home
         </state>
       </provider>
     </entry>
@@ -830,12 +1008,17 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <first_editor relative-caret-position="357">
             <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
 =======
           <first_editor relative-caret-position="272">
             <caret line="16" column="42" lean-forward="false" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
 >>>>>>> adba88997c4e28081d3e9f28951127531908de10
+=======
+          <first_editor relative-caret-position="221">
+            <caret line="13" column="3" lean-forward="false" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
+>>>>>>> home
             <folding />
           </first_editor>
           <second_editor />
