@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>视频剪切 </title>
+
+    <!--<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>-->
+    <script src="http://127.0.0.1/thinkphp5-study-line/public/static/js/jquery-1.10.2.min.js"></script>
+
+    <script type="text/javascript">
+        var myVideo, volumeBar, volumeNumbers, volumeMouse = false, mouseTimer, seekBar, seekNumbers, playButton,
+            muteButton;
+
+        //声明全局变量，规定最大请求次数
+        var max_request_length = 0
+        var new_name = '';
+        var old_name = '';
+        $(document).ready(function () {
+            myVideo = document.getElementById("mdabdvid");
+            seekBar = document.getElementById("seek-bar");
+            seekNumbers = document.getElementById("seek-numbers");
+            volumeBar = document.getElementById("volume-bar");
+            volumeNumbers = document.getElementById("volume-numbers");
+            playButton = document.getElementById("play");
+            muteButton = document.getElementById("mute");
+
+            //当视频的音量改变时执行
+            myVideo.addEventListener("volumechange", function () {
+                console.log("鼠标点击事件");
+                volumeBar.value = myVideo.volume * 100;
+                volumeNumbers.innerHTML = Math.round(myVideo.volume * 100) + '%';
+                if (myVideo.muted) {
+                    muteButton.innerHTML = "unmute";
+                } else {
+                    muteButton.innerHTML = "mute";
+                }
+            });
+
+            // 进度调节
+            seekBar.addEventListener("change", function () {
+                console.log("22222222");
+                var time = myVideo.duration * (seekBar.value / 100);
+                myVideo.currentTime = time;
+            });
+
+            //事件在当前的播放位置发送改变时触发
+            myVideo.addEventListener("timeupdate", function () {
+                console.log("事件在当前的播放位置发送改变时触发");
+                // Calculate the slider value
+                var value = (100 / myVideo.duration) * myVideo.currentTime;
+                // Update the slider value
+                seekBar.value = value;
+                seekNumbers.innerHTML = Math.round(value) + '%';
+            });
+
+            // Pause the video when the seek handle is being dragged
+            seekBar.addEventListener("mousedown", function () {
+                myVideo.pause();
+            });
+            // Play the video when the seek handle is dropped
+            seekBar.addEventListener("mouseup", function () {
+                myVideo.play();
+            });
+
+            myVideo.addEventListener('play', videoPausePlayHandler, false);
+            myVideo.addEventListener('pause', videoPausePlayHandler, false);
+
+        });
+
+        //播放暂定回调
+        function videoPausePlayHandler(e) {
+            console.log("播放暂定回调");
+            if (e.type == 'play') {
+                playButton.innerHTML = "pause";
+            } else if (e.type == 'pause') {
+                playButton.innerHTML = "play";
+            }
+        }
+
+        function getStarttime() {
+            var s = document.getElementById("mdabdvid");
+            durform = document.getElementById("starttime");
+            durform.value = Math.ceil((s.currentTime) * (100)) / 100;
+        }
+
+        function getEndtime() {
+            var s = document.getElementById("mdabdvid");
+            durform = document.getElementById("endtime");
+            durform.value = Math.ceil((s.currentTime) * (100)) / 100;
+        }
+
+        function volume_up() {
+            var vol = myVideo.volume + 0.01;
+            myVideo.volume = Math.min(vol, 1);
+            if (volumeMouse) {
+                mouseTimer = setTimeout(volume_up, 50);
+            }
+        }
+
+        function volume_down() {
+            var vol = myVideo.volume - 0.01;
+            myVideo.volume = Math.max(0, vol);
+            if (volumeMouse) {
+                mouseTimer = setTimeout(volume_down, 50);
+            }
+        }
+
+        //鼠标触发事件
+        function setVolume() {
+            console.log("鼠标触发事件");
+            if (volumeMouse) {
+                myVideo.volume = volumeBar.value / 100;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+<div id="wrapper" class="wrapper">
+    <div id="container" class="container">
+        <div id="nav" class="nav">
+            <h4 class="index nav1"><a href="index.html" target="_self">{$title}</a></h4>
+        </div>
+
+        <div id="main" class="main">
+            <div class="video">
+                <video id="mdabdvid" width="480px" height="360" poster="img/3.jpg" controls>
+                    <source id="videosource"
+                            src="https://vodcdn.alicdn.com/oss/taobao-ugc/e6fb60eae8594f9e812233489bfa2732/1476578718/video.mp4"
+                            type="video/mp4">
+                </video>
+                <div id="play_div" class="play_div">
+                    <div class="volume">
+                        <button onmousedown="volumeMouse=true; volume_up();"
+                                onmouseup="volumeMouse=false; clearTimeout(mouseTimer);">音量增加
+                        </button>
+
+                        <button onmousedown="volumeMouse=true; volume_down();"
+                                onmouseup="volumeMouse=false; clearTimeout(mouseTimer);">音量减小
+                        </button>
+                    </div>
+                    <div class="volume-bar">
+                        <input type="range" id="volume-bar" min="0" max="100" value="100" onmousemove="setVolume()"
+                               onmousedown="volumeMouse=true;" onmouseup="volumeMouse=false; "/>
+                        <output for="volume-bar" id="volume-numbers">100</output>
+
+                        <input id="seek-bar" type="range" min="0" max="100" value="0" step="1">
+                        <output for="seek-bar" id="seek-numbers">100</output>
+
+                        <button id="play" onclick="vidplay()">play</button>
+                        <button id="mute" onclick="vidmute()">mute</button>
+                    </div>
+                    <div>
+                        <button id="publishBtn" onclick="publishVideo()">发布所播放的视频</button>
+                    </div>
+
+                    <form action="jwphp/amai_my.php" method="post">
+                        <div class="start">
+                            开始位置(秒):<input type="text" id="starttime" name="end_time">
+                            <button id="btn_starttime" onclick="getStarttime()" type="button">获取当前播放位置作为开始位置</button>
+                        </div>
+                        <div class="end">
+                            截止位置(秒):<input type="text" id="endtime" name="old_name">
+                            <button id="btn_endtime" onclick="getEndtime()" type="button">获取当前播放位置作为截至位置</button>
+                        </div>
+                        <div class="video-desc">
+                            新视频名称:&nbsp;&nbsp;<input type="text" align="left" value="剪切视频" id="videodesc"
+                                                     name="videodesc">
+                        </div>
+                        <div class="submit">
+                            <input id="bt_submit" type="submit" value="确定剪切">
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div><!--main-->
+    </div>
+</div>
+<img id="compman" src="http://127.0.0.1/thinkphp5-study-line/public/static/123.png" alt="Computerman"/>
+
+
+<script type="text/javascript">
+
+    function initNav() {
+
+        var navItems = $("#nav div>ul");
+        navItems.each(function () {
+            $(this).click(function () {
+
+                var id = $(this).attr("id");
+                var ulId = $("#" + id);
+
+                if (ulId.hasClass("unselected")) {
+                    ulId.siblings().css("display", "block");
+                    ulId.removeClass("unselected");
+                } else {
+                    ulId.siblings().css("display", "none");
+                    ulId.addClass("unselected");
+                }
+
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
