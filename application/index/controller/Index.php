@@ -1,7 +1,6 @@
 <?php
 namespace app\index\controller;
 
-use FFMpeg\FFMpeg;
 use think\Controller;
 use think\Db;
 use think\Request;
@@ -11,14 +10,25 @@ class Index extends Controller
     public function index()
     {
         $data = ['name'=>'thinkphp','url'=>'thinkphp.cn'];
-//        return ['data'=>$data,'code'=>1,'message'=>'操作完成'];
         return json(['data'=>$data,'code'=>1,'message'=>'操作完成2']);
     }
 
-    public function phalcon()
+    /**
+     * 打印配置信息
+     * [1] 当前应用的配置会替换掉默认的配置信息
+     */
+    public function configInfo()
     {
-        $res = Db::query('select * from tour_admin_node where id=?', [166]);
-        print_r($res);
+        $default_conf = [
+            'name' => "TIM"
+        ];
+
+        $self_conf = [
+            'name' => "Tinywan"
+        ];
+        // 以上说明自定的配置会替换掉默认的配置
+        dump(array_merge($default_conf,$self_conf));
+        var_dump(config());
     }
 
 
@@ -45,8 +55,4 @@ class Index extends Controller
 
     }
 
-    public function ffmepg(){
-        $test = new \my\Test();
-        $test->sayHello();
-    }
 }

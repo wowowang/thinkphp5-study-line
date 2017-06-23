@@ -19,7 +19,7 @@ class Index extends Controller
 {
     public function index()
     {
-        $this->redirect('http://ssconsole.amaitech.com/',302);
+        return "this is api module";
     }
 
     public function test()

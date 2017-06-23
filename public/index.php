@@ -13,8 +13,10 @@
 
 // 定义应用目录
 define('APP_PATH', __DIR__ . '/../application/');
+
+// 定义配置文件目录和应用目录同级
 define('CONF_PATH', __DIR__ . '/../config/');
-//定义多媒体存放路径
+// 定义多媒体存放路径
 define('MEDIA_PATH', __DIR__ . '/../media/');
 
 // 定义配置文件目录和应用目录同级
