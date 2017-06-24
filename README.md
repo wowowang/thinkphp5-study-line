@@ -31,3 +31,28 @@ ffmpeg
 ##  模块
 +   common为公共模块，不允许在URL上直接访问   
 +   扩展配置会覆盖应用配置，应用覆盖默认配置   
++   隐藏index.php Apache 开启`LoadModule rewrite_module modules/mod_rewrite.so`
++   入口文件绑定
+##  API 模块的单独使用
++   在public文件夹下新建api.php文件
+    ```php
+    define('APP_PATH', __DIR__ . '/../application/');
+    define('CONF_PATH', __DIR__ . '/../config/');
+    require __DIR__ . '/../thinkphp/start.php';
+    ```
++   入口自动绑定模块`'auto_bind_module' => true` 默认是false,修改为true既可以
++   访问路径：`http://127.0.0.1:8080/thinkphp5-study-line/public/api.php/index/test`
+##  路由
++   dfsd
+    ```php
+    return [
+        "news/:id"=>"admin/index/info", #   http://127.0.0.1/news/234
+    ];
+    ```
+##  请求和相应
++   $request 将会打印所有请求信息
+##  input助手函数
++   
+
+
+

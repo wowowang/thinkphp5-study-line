@@ -28,6 +28,10 @@ class Index extends Controller
         header('location:' . $url);
     }
 
+    public function test(){
+        return $this->fetch('testdemo');
+    }
+
     /**
      * 拉取用户信息
      */
@@ -76,7 +80,7 @@ class Index extends Controller
             'nonceStr' => $nonceStr,
             'signature' => $signature
         ]);
-        return view();
+        return $this->fetch();
     }
 
     /**

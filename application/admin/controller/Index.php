@@ -3,47 +3,35 @@
 /**
  * Created by PhpStorm.
  * User: tinywan
- * Date: 2017/6/23
- * Time: 21:06
+ * Date: 2017/6/24
+ * Time: 22:57
  */
-
 namespace app\admin\controller;
 
-use  app\common\controller\Index as commonIndex;
+use think\Controller;
 
-class Index
+class Index extends Controller
 {
-    /**
-     * 在这里设置的配置项全局都可以使用，如果是一个方法之内的则只能在当前方法有效
-     * Index constructor.
-     */
-    public function __construct()
-    {
-        config("before","beforeAction");
-    }
-
     public function index()
     {
-        return "this is admin module";
+        return "index";
     }
 
     /**
-     * 如何访问common模块的方法
-     * [1] 通过use 引入该文件，给一个别名commonIndex 实例化这个方法就可以使用了
-     * @return string
+     * view() 不需要继承 think\Controller
+     * @return \think\response\View
      */
-    public function commonModuleIndex()
+    public function indexView()
     {
-        echo "admin common";        // 先输出
-        $common = new commonIndex();
-        return $common->index();    //  后输出
+        return view();
     }
 
     /**
-     * 打印配置信息
+     * fetch() 必须要继承 think\Controller
+     * @return mixed
      */
-    public function configInfo()
+    public function indexFetch()
     {
-        var_dump(config());
+        return $this->fetch("indexdemo");
     }
 }

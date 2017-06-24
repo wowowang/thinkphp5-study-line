@@ -28,11 +28,29 @@ class Index extends Controller
         return '111111111111';
     }
 
-    public function phalcon()
+    /**
+     * 默认输出类型 测试
+     * URL访问：http://127.0.0.1:8080/api.php/index/default_return_type
+     * @return string
+     */
+    public function default_return_type()
     {
-        phpinfo();
-        die;
-        return 'Phalcon 3.0';
+        $res = [
+            'code' => 200,
+            'result'=>[
+                'username'=>"tinywan",
+                'age'=>24
+            ]
+        ];
+        return $res;
+    //        返回结果：
+    //        {
+    //            "code": 200,
+    //            "result": {
+    //                        "username": "tinywan",
+    //                        "age": 24
+    //            }
+    //        }
     }
 
     public function notify()

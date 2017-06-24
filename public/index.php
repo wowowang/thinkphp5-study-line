@@ -19,6 +19,8 @@ define('CONF_PATH', __DIR__ . '/../config/');
 // 定义多媒体存放路径
 define('MEDIA_PATH', __DIR__ . '/../media/');
 
-// 定义配置文件目录和应用目录同级
+// 绑定模块
+#define("BIND_MODULE","admin");
+#define("BIND_MODULE","admin/index");
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
