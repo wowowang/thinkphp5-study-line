@@ -1,6 +1,3 @@
-<<<<<<< Updated upstream
-Git is a free software
-=======
 # thinkphp5-study-line
 thinkphp5-study-line
 ffmpeg
