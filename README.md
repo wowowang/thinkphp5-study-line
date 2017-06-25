@@ -50,6 +50,8 @@ ffmpeg
 +   $request 将会打印所有请求信息
 ##  input助手函数
 +   
+##  快速生成控制器类
++   `php think make:controller index/Blog`
 
 
 
