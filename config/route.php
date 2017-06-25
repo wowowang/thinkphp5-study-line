@@ -6,5 +6,5 @@
  * Time: 10:47
  */
 return [
-    "news/:id"=>"admin/index/info", #   http://127.0.0.1/news/234
+    "news/:id"=>"backend/index/info", #   http://127.0.0.1/news/234
 ];

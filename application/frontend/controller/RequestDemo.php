@@ -10,7 +10,7 @@
  * |  Created by PhpStorm.
  * '-------------------------------------------------------------------*/
 
-namespace app\index\controller;
+namespace app\frontend\controller;
 
 
 use think\Controller;

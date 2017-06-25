@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统变量原生标签</title>
+</head>
+<body>
+<h1>systemTag</h1>
+<h2>HTTP_HOST：{$Think.server.HTTP_HOST}</h2>
+<h2>session：{$Think.session.email}</h2>
+<h2>cookie：{$Think.cookie.username}</h2>
+<hr>
+<h2>获取get值：{$Think.get.type}</h2> http://www.thinkphp5.com/backend/index/systemTag?type=json
+<h2>获取post值：{$Think.get.type}</h2> postman 测试访问
+<hr>
+<h1>打印常量</h1>
+<h2>{$Think.const.APP_PATH}</h2>
+<h2>{$Think.const.MEDIA_PATH}</h2>
+<h2>{$Think.APP_PATH}</h2>
+</body>
+</html>

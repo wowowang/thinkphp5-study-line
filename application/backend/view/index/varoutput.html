@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量输出调节器</title>
+</head>
+<body>
+<h1>{$username} 的Md5值:{$username|md5}</h1>
+<h1>{$email} 字符串截取:{$email|substr=0,8}</h1>
+<h2>时间显示：{$time} {$time|date="Y-m-d",###}</h2>
+<h2>转换字符为大写：{$time} {$time|md5|strtoupper}</h2>
+<h2>{$a} ++a 的值：{++$a} </h2>
+<hr>
+<h4>默认值：{$tel|default="13669361192"}</h4>
+literal 标签之内的变量不会被解释
+<literal>
+    ${username}
+</literal>
+<hr>
+TP自带的注释
+{/* TP自带的注释 */}
+<hr>
+<h3>模板循环标签:</h3>
+{volist name="lists" id="vo" empty="没有查询到数据"}
+    <li>{$vo.username} {$vo.age}</li>
+{/volist}
+
+<h3>volist指定输出长度:</h3>
+<!--{volist name="lists" id="vo" offset="0" length="3" mod="2" empty="没有查询到数据"}-->
+{volist name="lists" id="vo" offset="0" length="3" mod="2" empty="$empty"}
+    <li>{$mod}--{$vo.username} {$vo.age}</li>
+{/volist}
+
+<hr>
+<h3>foreach[1]指定输出长度:</h3>
+{foreach $lists as $list}
+    <p>{$list.username}</p>
+{/foreach}
+
+<hr>
+<h3>foreach[2]指定输出长度:</h3>
+{foreach name="lists" id="list"}
+<p>{$list.username}</p>
+{/foreach}
+
+</body>
+</html>

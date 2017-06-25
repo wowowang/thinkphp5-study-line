@@ -4,34 +4,33 @@
  * Created by PhpStorm.
  * User: tinywan
  * Date: 2017/6/24
- * Time: 22:57
+ * Time: 22:33
  */
-namespace app\admin\controller;
+namespace app\frontend\controller;
 
 use think\Controller;
 
 class Index extends Controller
 {
-    public function index()
-    {
-        return "index";
+    public function index(){
+        return " frontend Index index";
     }
 
     /**
-     * view() 不需要继承 think\Controller
+     * view 使用
      * @return \think\response\View
      */
     public function indexView()
     {
-        return view();
+        return view("index");
     }
 
     /**
-     * fetch() 必须要继承 think\Controller
+     * fetch 使用
      * @return mixed
      */
     public function indexFetch()
     {
-        return $this->fetch("indexdemo");
+        return $this->fetch("hello");
     }
 }

@@ -20,7 +20,7 @@ define('CONF_PATH', __DIR__ . '/../config/');
 define('MEDIA_PATH', __DIR__ . '/../media/');
 
 // 绑定模块
-#define("BIND_MODULE","admin");
-#define("BIND_MODULE","admin/index");
+#define("BIND_MODULE","backend");
+#define("BIND_MODULE","backend/index");
 // 加载框架引导文件
 require __DIR__ . '/../thinkphp/start.php';
