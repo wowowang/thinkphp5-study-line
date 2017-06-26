@@ -1,0 +1,120 @@
+html,body,.main,.content{
+    height: 100%;
+}
+.content{
+    position: relative;
+}
+
+button,input[type="submit"],input[type=button]{
+    height: 30px;
+    padding: 5px;
+    margin-right: 10px;
+}
+/*============ nav ================*/
+
+.left {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: gainsboro;
+    overflow: auto;
+    padding-bottom: 50px;
+}
+.left .index{
+    height:40px;
+    line-height:40px;
+    color: #fff;
+    background-color: #2c374a;
+    font-size: 18px;
+    font-family:"microsoft yahei", "微软雅黑";
+    text-align: center;
+}
+
+.controlSymbol{
+    display: none;
+}
+
+ul#outer_wrap li div{
+    display: inline-block;
+}
+ul#outer_wrap li a{
+    color: #000;
+    padding-left: 15px;
+}
+.navone{
+    padding-left: 10px;
+}
+.nav>.navtwo{
+    display: none;
+}
+
+.test-right{
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid #2c374a;
+}
+.test-down{
+    width: 0;
+    height: 0;
+    border-top: 10px solid #2c374a;
+    border-right: 10px solid transparent;
+    border-left: 10px solid transparent;
+}
+
+.circle{
+    width: 10px;
+    height: 10px;
+    background-color: #2c374a;
+    border-radius: 50%;
+}
+
+/*============ main ================*/
+.main{
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 300px;
+    padding: 40px 0;
+    box-sizing: border-box;
+    background: #fff;
+    overflow: auto;
+}
+.video{
+    text-align: center;
+    width: 100%;
+}
+
+.play{
+    margin-bottom: 30px;
+}
+.play_div div{
+    margin: 15px;
+    text-align: center;
+}
+.volume{
+
+}
+.volume-operate button{
+
+}
+.right{
+    margin-bottom: 10px;
+    display: inline-block;
+    width: 600px;
+}
+.right_in .pic{
+    display: inline-block;
+}
+.btns{
+    margin-bottom: 30px;
+}
+.mergeform{
+
+}
+.mergeform .submit{
+
+}

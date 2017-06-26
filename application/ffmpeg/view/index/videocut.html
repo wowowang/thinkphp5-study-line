@@ -5,8 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>视频剪切 </title>
 
-    <!--<script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>-->
-    <script src="http://127.0.0.1/thinkphp5-study-line/public/static/js/jquery-1.10.2.min.js"></script>
+    <link href="__CSS__/cutbase.css" rel="stylesheet" type="text/css"/>
+    <link href="__CSS__/cut.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" src="__JS__/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="__JS__/paraparser.js"></script>
+    <script src="__JS__/jquery-1.10.2.min.js"></script>
 
     <script type="text/javascript">
         var myVideo, volumeBar, volumeNumbers, volumeMouse = false, mouseTimer, seekBar, seekNumbers, playButton,
@@ -126,9 +130,9 @@
 
         <div id="main" class="main">
             <div class="video">
-                <video id="mdabdvid" width="480px" height="360" poster="img/3.jpg" controls>
+                <video id="mdabdvid" width="480px" height="360" poster="__IMAGES__/ffmpeg.png" controls>
                     <source id="videosource"
-                            src="https://vodcdn.alicdn.com/oss/taobao-ugc/e6fb60eae8594f9e812233489bfa2732/1476578718/video.mp4"
+                            src="__VIDEO_DATA__/{$video_name}.mp4"
                             type="video/mp4">
                 </video>
                 <div id="play_div" class="play_div">
@@ -156,18 +160,17 @@
                         <button id="publishBtn" onclick="publishVideo()">发布所播放的视频</button>
                     </div>
 
-                    <form action="jwphp/amai_my.php" method="post">
+                    <form action="/ffmpeg/index/videoCutOperate" method="post">
                         <div class="start">
-                            开始位置(秒):<input type="text" id="starttime" name="end_time">
+                            开始位置(秒):<input type="text" id="starttime" name="start_time">
                             <button id="btn_starttime" onclick="getStarttime()" type="button">获取当前播放位置作为开始位置</button>
                         </div>
                         <div class="end">
-                            截止位置(秒):<input type="text" id="endtime" name="old_name">
+                            截止位置(秒):<input type="text" id="endtime" name="end_time">
                             <button id="btn_endtime" onclick="getEndtime()" type="button">获取当前播放位置作为截至位置</button>
                         </div>
                         <div class="video-desc">
-                            新视频名称:&nbsp;&nbsp;<input type="text" align="left" value="剪切视频" id="videodesc"
-                                                     name="videodesc">
+                            新视频名称:&nbsp;&nbsp;<input type="text" align="left" value="剪切视频" id="videodesc" name="videodesc">
                         </div>
                         <div class="submit">
                             <input id="bt_submit" type="submit" value="确定剪切">
@@ -179,8 +182,6 @@
         </div><!--main-->
     </div>
 </div>
-<img id="compman" src="http://127.0.0.1/thinkphp5-study-line/public/static/123.png" alt="Computerman"/>
-
 
 <script type="text/javascript">
 
