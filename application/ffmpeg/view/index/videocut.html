@@ -10,7 +10,6 @@
 
     <script type="text/javascript" src="__JS__/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="__JS__/paraparser.js"></script>
-    <script src="__JS__/jquery-1.10.2.min.js"></script>
 
     <script type="text/javascript">
         var myVideo, volumeBar, volumeNumbers, volumeMouse = false, mouseTimer, seekBar, seekNumbers, playButton,
@@ -70,9 +69,218 @@
             myVideo.addEventListener('play', videoPausePlayHandler, false);
             myVideo.addEventListener('pause', videoPausePlayHandler, false);
 
+            //http://localhost/player/video/myVideo1.mp4
+            $('#bt_submit').click(function () {
+                var start_time = $('#starttime').val();
+                var end_time = $('#endtime').val();
+                var edit_desc = $('#videodesc').val();
+                //判断时间大小
+                if (parseFloat(start_time) > parseFloat(end_time)) {
+                    alert('error: start_time > end_time' + start_time + ':' + end_time);
+                    event.preventDefault();
+                    return;
+                }
+
+                //获得视频名称
+                var video_source = $('#videosource').get(0).src;
+                var video_path = video_source.split('/');
+                var video_name = video_path[video_path.length - 1];
+
+                //生成的视频名
+                var new_name_array = video_name.split('.');//字符串分割
+                var timestamp = (new Date()).valueOf();//获取时间戳
+                new_name = timestamp;//new_name_array[0]+''+timestamp+'.'+new_name_array[1]; //生成视频名例如 target2342343111.mp4
+
+                //  old_name 和 video_id 是相同的
+                //  new_name 为当前时间戳
+                console.log("start_time:" + start_time + "end_time:" + end_time + "edit_desc:" + edit_desc + "old_name : " + old_name + 'new_name : ' + new_name);
+//                return 1;
+                if (start_time && end_time && old_name && new_name) {
+                    console.log("call first_ajax_request");
+//                    alert('即将开始剪切，完成后通知你，请稍后...');
+                    first_ajax_request(start_time, end_time, old_name, new_name, edit_desc);
+                } else {
+                    alert('参数不全');
+                }
+                event.preventDefault();
+            });
+
         });
 
-        //播放暂定回调
+        // 根据URL 获取liveid
+        function getparastr(strname) {
+            var hrefstr, pos, parastr, para, tempstr;
+            hrefstr = window.location.href;
+            pos = hrefstr.indexOf("?");
+            if (pos == -1) return null;
+            parastr = hrefstr.substring(pos + 1);
+            para = parastr.split("&");
+            tempstr = "";
+            for (i = 0; i < para.length; i++) {
+                tempstr = para[i];
+                pos = tempstr.indexOf("=");
+                if (tempstr.substring(0, pos) == strname) {
+                    return tempstr.substring(pos + 1);
+                }
+            }
+            return null;
+        }
+
+        /**
+         * 根据LiveId 获取视频信息
+         */
+        $(function () {
+            paras = getparastr('liveid');
+            console.log("URL param :" + paras);
+            liveid = "L00139";
+            if (paras != null)
+                liveid = paras;
+            url = "{:url('ffmpeg/Index/getLiveVideoList')}";
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data: 'liveid=' + liveid,
+                dataType: 'json',
+                success: function (json) {
+                    console.log(json);
+                    //alert(json.length);
+                    for (var i = 0; i < json.length; i++) {
+                        if (json[i].pid == -1)
+                            $("#nav").append(
+                                "<div class=\"levelone\" id=\""
+                                + json[i].id +
+                                "\"><ul id=\"levelone"
+                                + json[i].id +
+                                "\" data-nav=\""
+                                + json[i].id +
+                                "\"><li><a target=\"_self\" href=\"javascript:openVideo('"
+                                + json[i].playpath +
+                                "','"
+                                + json[i].id +
+                                "');\">"
+                                + json[i].desc +
+                                "</a></li></ul></div>"
+                            );
+
+                    }
+                    for (var i = 0; i < json.length; i++) {
+                        if (json[i].pid != -1)
+                        //$("\"#"+json[i].pid+"\"").append("<div id=\"#json[i].id\"><ul><li><a target=\"_self\" href=\"javascript:openVideo('"+json[i].playpath+"','"+json[i].id+"');\">"+json[i].desc+"</a></li></ul></div>");
+
+                            $("#" + json[i].pid).append(
+                                "<div class=\"leveltwo\"   id=\""
+                                + json[i].id +
+                                "\"><ul ><li ><a target=\"_self\" href=\"javascript:openVideo('"
+                                + json[i].playpath +
+                                "','" + json[i].id + "');\">"
+                                + json[i].desc +
+                                "</a></li></ul></div>"
+                            );
+                    }
+
+                    /*initNav();*/
+                },
+
+                error: function (json) {
+                    //alert("vide list error");
+                    alert("视频源故障");
+                }//error
+            });
+        });
+
+
+        /**
+         * 右边视频列表播放
+         * @param path id
+         */
+        function openVideo(path, id) {
+            var video = $('#mdabdvid');
+            var video_source = $('#videosource');
+            video_source[0].src = path;
+            video[0].load();
+            video[0].play();
+            old_name = id;
+        }
+
+        /**
+         * 第一次ajax请求
+         */
+        function first_ajax_request(start_time, end_time, old_name, new_name, edit_desc) {
+            $.post(
+                "{:url('ffmpeg/Index/videoCutOperate')}",
+//                'jwphp/amai_my.php',
+                {
+                    "start_time": start_time, "end_time": end_time,
+                    "old_name": old_name, "new_name": new_name, "video_desc": edit_desc
+                },
+                function (cc) { //服务器传过来的数据
+                    // alert(old_name);
+                    console.log(cc);
+                    if (cc.status == 1) {
+                        //第一次ajax请求成功  访问视频状态
+                        //alert('request_again');
+                        next_ajax_request(new_name);
+                    } else {
+                        alert('请求错误');
+                    }
+                },
+                'json'
+            )
+        }
+
+        /**
+         * 随后的ajax请求
+         */
+        //        function next_ajax_request(new_name) {
+        //            $.post(
+        //                'jwphp/amai_nextRequest.php',
+        //                {"new_name": new_name},
+        //                function (data) { //服务器传过来的数据
+        //                    if (data) {
+        //                        //视频没有处理完成好
+        //                        if (data.status == -1) {
+        //                            // alert(cc.filename);
+        //                            if (max_request_length < 100) {
+        //                                setTimeout('next_ajax_request(new_name)', 5000);
+        //                            } else {
+        //                                alert('请求超时');
+        //                            }
+        //                            max_request_length++;
+        //                        } else if (data.status != 1) {
+        //                            alert('操作失败,请重试');//data.msg);
+        //                        } else {//视频已经检测到
+        //                            //获得视频名称添加div
+        //                            //alert('data.pid:'+data.pid);
+        //                            alert(data.desc + " 已经剪好,请在左侧列表中点击播放。");
+        //                            //add_li(data.filename);
+        //                            //{"status":1,"filename":"video\/user5\/1.mp4-1417533662088.mp4","id":"169","desc":"this is a test","image":"video\/user5\/1.mp4-1417533662088.mp4-snap.jpg"}
+        //                            //$("#nav").append("<ul><li><a target=\"_self\" href=\"javascript:openVideo('"+data.filename+"','"+data.id+"');\">"+data.desc+"</a></li></ul>");
+        //                            //$("#"+data.pid).append("<ul><li><a target=\"_self\" href=\"javascript:openVideo('"+data.filename+"','"+data.id+"');\">"+data.desc+"</a></li></ul>");
+        //
+        //                            $("#" + data.pid).append("<div class=\"leveltwo\" margin-left:10px id=\"" + data.id + "\"><ul><li><a target=\"_self\" href=\"javascript:openVideo('" + data.playpath + "','" + data.id + "');\">" + data.desc + "</a></li></ul></div>");
+        //                        }
+        //                    } else {
+        //                        alert('请求错误');
+        //                    }
+        //                },
+        //                'json'
+        //            )
+        //        }
+
+        /**
+         * 动态添加div
+         */
+        function add_li(filename) {
+            $("#add_img").attr("src", "img/1.jpg");
+            $("#add_img").attr("name", "video/" + filename);
+            $("#add_span").html("视频名称" + filename);
+        }
+
+        /**
+         * --------------------添加结束
+         * 播放暂定回调
+         * @param e
+         */
         function videoPausePlayHandler(e) {
             console.log("播放暂定回调");
             if (e.type == 'play') {
@@ -82,18 +290,27 @@
             }
         }
 
+        /**
+         * 获取开始时间
+         */
         function getStarttime() {
             var s = document.getElementById("mdabdvid");
             durform = document.getElementById("starttime");
             durform.value = Math.ceil((s.currentTime) * (100)) / 100;
         }
 
+        /**
+         * 获取结束时间
+         */
         function getEndtime() {
             var s = document.getElementById("mdabdvid");
             durform = document.getElementById("endtime");
             durform.value = Math.ceil((s.currentTime) * (100)) / 100;
         }
 
+        /**
+         * 音量++
+         */
         function volume_up() {
             var vol = myVideo.volume + 0.01;
             myVideo.volume = Math.min(vol, 1);
@@ -102,6 +319,9 @@
             }
         }
 
+        /**
+         * 音量--
+         */
         function volume_down() {
             var vol = myVideo.volume - 0.01;
             myVideo.volume = Math.max(0, vol);
@@ -110,7 +330,9 @@
             }
         }
 
-        //鼠标触发事件
+        /**
+         * 鼠标触发事件
+         */
         function setVolume() {
             console.log("鼠标触发事件");
             if (volumeMouse) {
@@ -160,7 +382,8 @@
                         <button id="publishBtn" onclick="publishVideo()">发布所播放的视频</button>
                     </div>
 
-                    <form action="/ffmpeg/index/videoCutOperate" method="post">
+                    <!--<form action="/ffmpeg/index/videoCutOperate" method="post">-->
+                    <form action="" method="post">
                         <div class="start">
                             开始位置(秒):<input type="text" id="starttime" name="start_time">
                             <button id="btn_starttime" onclick="getStarttime()" type="button">获取当前播放位置作为开始位置</button>
@@ -170,7 +393,8 @@
                             <button id="btn_endtime" onclick="getEndtime()" type="button">获取当前播放位置作为截至位置</button>
                         </div>
                         <div class="video-desc">
-                            新视频名称:&nbsp;&nbsp;<input type="text" align="left" value="剪切视频" id="videodesc" name="videodesc">
+                            新视频名称:&nbsp;&nbsp;<input type="text" align="left" value="剪切视频" id="videodesc"
+                                                     name="videodesc">
                         </div>
                         <div class="submit">
                             <input id="bt_submit" type="submit" value="确定剪切">

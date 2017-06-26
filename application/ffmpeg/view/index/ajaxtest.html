@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="__JS__/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<h2>Ajax test</h2>
+<script type="text/javascript">
+    // 根据URL 获取liveid
+    function getparastr(strname) {
+        var hrefstr, pos, parastr, para, tempstr;
+        hrefstr = window.location.href;
+        pos = hrefstr.indexOf("?");
+        if (pos == -1) return null;
+        parastr = hrefstr.substring(pos + 1);
+        para = parastr.split("&");
+        tempstr = "";
+        for (i = 0; i < para.length; i++) {
+            tempstr = para[i];
+            pos = tempstr.indexOf("=");
+            if (tempstr.substring(0, pos) == strname) {
+                return tempstr.substring(pos + 1);
+            }
+        }
+        return null;
+    }
+
+    $(function () {
+        paras = getparastr('liveid');
+        console.log("URL param :" + paras);
+        liveid = "L00139";
+        if (paras != null)
+            liveid = paras;
+        $.ajax({
+            url: "{:url('ffmpeg/Index/ajaxOpt')}",
+            type: 'GET',
+            data:"liveid="+liveid,
+            dataType: 'json',
+            success: function (json) {
+                console.log("json return "+json);
+            },
+            error: function (json) {
+                //alert("vide list error");
+                alert("视频源故障");
+            }//error
+        });
+    });
+</script>
+</body>
+</html>
