@@ -12,51 +12,67 @@
 
 namespace app\frontend\controller;
 
-
-use Curl\Curl;
 use think\Controller;
 use think\Db;
 use think\Log;
 
-class DbDemo extends Controller
+class Demo extends Controller
 {
-
+    /**
+     * 打印数据库配置信息
+     */
     public function index()
     {
-        return 'db';
+        var_dump(Db::connect());
     }
 
-    public function phalcon()
+    /**
+     * 使用 sql 语句的方式查询数据库
+     */
+    public function query1()
     {
-        $res = Db::query('select * from user where id=?', [757158802]);
-        $data = ['foo' => 'bar', 'bar' => 'foo'];
-        $insertRes = Db::table('think_user')->insert($data);
-        print_r($res);
+        $res = Db::query('select * from frontend_user where user_id=?', [27]);
+        var_dump($res);
     }
 
+    /**
+     * 绑定参数名, sql 语句的方式查询数据库
+     */
     public function queryDemo1()
     {
-        // 是否为 GET 请求
-        $res = Db::query('select * from tour_admin_user where id=?', [164]);
+        // 简单的查询方式
+        $res = Db::query('select * from frontend_user where user_id = ?', [33]);
         print_r($res);
         //也支持命名占位符绑定
-        $res2 = Db::query('select * from tour_admin_user where id=:id', ['id' => 164]);
+        $res2 = Db::query('select * from frontend_user where user_id = :id', ['id' => 34]);
         print_r($res2);
-        die;
+        // 如果设置了数据表前缀参数的话，使用表前缀的查询 多条记录
+        $res3 = Db::name("user")->select();
+        print_r($res3);
+        // 使用表前缀的查询单条记录
+        $res4 = Db::name("user")->find();
+        print_r($res4);
+        //使用助手函数
+        $res5 = db("user")->find();
+        print_r($res5);
     }
 
+    /**
+     * 【1】插入数据库操作
+     */
     public function insertDemo1()
     {
-        // 是否为 GET 请求
-        $insertRes = Db::execute('insert into tour_admin_user (id, name) values (?, ?)', [8, 'thinkphp']);;
-        var_dump($insertRes);
-        //也支持命名占位符绑定
-        $insertRes2 = Db::execute('insert into think_user (id, name) values (:id, :name)', ['id' => 8, 'name' => 'thinkphp']);
-        var_dump($insertRes2);
-        die;
+        // 插入成功返回 1
+        $insertRes = Db::execute('insert into frontend_user (username, password) values (?, ?)', ["tinywan001", 'thinkphp']);
+        echo $insertRes;
+        //也支持命名占位符绑定 插入成功返回 1
+        $insertRes2 = Db::execute('insert into frontend_user (username, password) values (:username, :password)', ['username' => "Github", 'password' => '123456']);
+        echo $insertRes2;
     }
 
-    //使用 Db 类的 insert 方法向数据库提交数据
+    /**
+     * 【2】使用 Db 类的 insert 方法向数据库提交数据
+     */
     public function insertDemo2()
     {
         $data = [
@@ -69,12 +85,31 @@ class DbDemo extends Controller
             $insertRes = Db::table('push_flow_record')->insert($data);
         } catch (\Exception $e) {
             Log::error('错误信息' . $e->getMessage());
-            exit('执行错误!');
+            return "执行错误";
         }
-        exit('执行成功!');
+        return '执行成功! insertRes'.$insertRes;
     }
 
-    //更新数据表中的数据
+    /**
+     * 添加多条数据
+     * @return string
+     */
+    public function insertAllDemo1()
+    {
+        $data = [];
+        for ($i = 0 ; $i<10 ; $i++){
+            $data[] = [
+                'username' => "User".$i,
+                'password' => "Pwd".$i,
+            ];
+        }
+        $res = Db::name('user')->insertAll($data);
+        echo $res;
+    }
+
+    /**
+     * 更新数据表中的数据
+     */
     public function updateDemo1()
     {
         $data = [
@@ -94,10 +129,49 @@ class DbDemo extends Controller
     }
 
     /**
+     * 更新数据表中的数据
+     */
+    public function updateDemo2()
+    {
+        $db = Db::name("user");
+        // 自增操作
+        $res1 = $db->where([
+            "user_id" => 26
+        ])->setInc("status");
+        echo $res1;
+        // 自增操作 指定的值，只需要传递第二个参数就可以了
+        $res2 = $db->where([
+            "user_id" => 26
+        ])->setInc("status",10);
+        echo $res2;
+        // 自减操作
+        $res3 = $db->where([
+            "user_id" => 26
+        ])->setDec("status",10);
+        echo  $res3;
+    }
+
+    /**
+     * 数据库删除操作
+     */
+    public function deleteDemo1()
+    {
+        $db = Db::name("user");
+        // 删除成功为 1 没有数据被删除或者失败返回为 0
+        $res1 = $db->where([
+            "user_id" => 26
+        ])->delete();
+        echo  $res1;
+        // 根据主键直接删除操作
+        $res2 = $db->delete(46);
+        echo $res2;
+        // 删除所有记录
+        $res3 = $db->where("1=1")->delete();
+    }
+
+    /**
      * 查询构造器
      */
-
-    //查询一个数据使用
     public function tableDemo1()
     {
         // table方法必须指定完整的数据表名,find 方法查询结果不存在，返回 null
@@ -109,8 +183,9 @@ class DbDemo extends Controller
         print_r($tabRes2);
     }
 
-    //查询多个数据使用
-
+    /**
+     * 查询多个数据使用
+     */
     public function tableSelect()
     {
         $res = Db::table('domain_name')->where('code', 'tinywan.amai8.com')->find(); //select 方法查询结果不存在，返回空数组
@@ -127,6 +202,9 @@ class DbDemo extends Controller
         var_dump($res);
     }
 
+    /**
+     * Redis 连接测试
+     */
     public function redisTest()
     {
         $redis = new \Redis();
@@ -160,17 +238,4 @@ class DbDemo extends Controller
         return gmdate("Y-m-d\TH:i:s\Z", strtotime($prcTime));
     }
 
-    public function test2()
-    {
-        $url = 'http://mworker.amaitech.com/api/Notify/notifyUrl';
-        $ch = curl_init() or die (curl_error());
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 360);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        var_dump(json_decode($response, true));
-        die;
-    }
 }
