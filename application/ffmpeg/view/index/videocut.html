@@ -341,11 +341,12 @@
         }
 
     </script>
+
 </head>
 
 <body>
 <div id="wrapper" class="wrapper">
-    <div id="container" class="container">
+    <div id="container" class="container" >
         <div id="nav" class="nav">
             <h4 class="index nav1"><a href="index.html" target="_self">{$title}</a></h4>
         </div>
@@ -358,14 +359,8 @@
                             type="video/mp4">
                 </video>
                 <div id="play_div" class="play_div">
-                    <div class="volume">
-                        <button onmousedown="volumeMouse=true; volume_up();"
-                                onmouseup="volumeMouse=false; clearTimeout(mouseTimer);">音量增加
-                        </button>
-
-                        <button onmousedown="volumeMouse=true; volume_down();"
-                                onmouseup="volumeMouse=false; clearTimeout(mouseTimer);">音量减小
-                        </button>
+                    <div>
+                        <button id="publishBtn" onclick="publishVideo()">发布所播放的视频</button>
                     </div>
                     <div class="volume-bar">
                         <input type="range" id="volume-bar" min="0" max="100" value="100" onmousemove="setVolume()"
@@ -378,29 +373,25 @@
                         <button id="play" onclick="vidplay()">play</button>
                         <button id="mute" onclick="vidmute()">mute</button>
                     </div>
+
                     <div>
-                        <button id="publishBtn" onclick="publishVideo()">发布所播放的视频</button>
+                        <form action="" method="post">
+                            <div class="start">
+                                开始位置(秒):&nbsp;&nbsp;<input type="text" id="starttime" name="start_time">
+                                <button id="btn_starttime" onclick="getStarttime()" type="button">获取当前播放位置作为开始位置</button>
+                            </div>
+                            <div class="end">
+                                截止位置(秒):&nbsp;&nbsp;<input type="text" id="endtime" name="end_time">
+                                <button id="btn_endtime" onclick="getEndtime()" type="button">获取当前播放位置作为截至位置</button>
+                            </div>
+                            <div class="video-desc">
+                                新视频名称:&nbsp;&nbsp;<input type="text" align="left" value="剪切视频" id="videodesc" name="videodesc">
+                            </div>
+                            <div class="submit">
+                                <input id="bt_submit" type="submit" value="确定剪切">
+                            </div>
+                        </form>
                     </div>
-
-                    <!--<form action="/ffmpeg/index/videoCutOperate" method="post">-->
-                    <form action="" method="post">
-                        <div class="start">
-                            开始位置(秒):<input type="text" id="starttime" name="start_time">
-                            <button id="btn_starttime" onclick="getStarttime()" type="button">获取当前播放位置作为开始位置</button>
-                        </div>
-                        <div class="end">
-                            截止位置(秒):<input type="text" id="endtime" name="end_time">
-                            <button id="btn_endtime" onclick="getEndtime()" type="button">获取当前播放位置作为截至位置</button>
-                        </div>
-                        <div class="video-desc">
-                            新视频名称:&nbsp;&nbsp;<input type="text" align="left" value="剪切视频" id="videodesc"
-                                                     name="videodesc">
-                        </div>
-                        <div class="submit">
-                            <input id="bt_submit" type="submit" value="确定剪切">
-                        </div>
-                    </form>
-
                 </div>
             </div>
         </div><!--main-->
