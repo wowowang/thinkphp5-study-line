@@ -1,0 +1,7 @@
+{include file="common/header"}
+<ul>
+    {volist name="lists" id="vo" empty="没有查询到数据"}
+    <li>{$vo.username} {$vo.age}</li>
+    {/volist}
+</ul>
+{include file="common/footer"}

@@ -16,7 +16,9 @@ class Index extends Controller
 {
     public function index()
     {
-        return "index";
+        return $this->fetch("index",[
+            "title"=>"智能后台数据管理平台"
+        ]);
     }
 
     /**

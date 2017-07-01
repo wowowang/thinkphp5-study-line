@@ -9,6 +9,7 @@
 namespace app\frontend\controller;
 
 use app\frontend\model\User;
+use FFMpeg\FFMpeg;
 use think\Controller;
 use think\Loader;
 
@@ -89,5 +90,86 @@ class Index extends Controller
             "username" => "33333333333"
         ],["user_id"=>27]);
         var_dump($user);
+    }
+
+    /**
+     *  模型获取器
+     */
+    public function userModelTest5(){
+        $user = User::get(18);
+        var_dump($user->status);
+        var_dump($user->toArray());
+        // 获取原始的数据
+        var_dump($user->getData());
+    }
+
+    /**
+     *  模型修改器-+自动完成
+     */
+    public function userModelTest6(){
+        $data = [
+            "username"=>"USER".rand(00000,99999),
+            "password"=>"password".rand(55555,99999),
+            "apikey_value"=>"756684177@qq.com",
+            "description"=>"模型修改器",
+        ];
+        //使用模型插入一条记录
+        $user = User::create($data);
+        var_dump($user);
+    }
+
+    /**
+     * 模型时间戳+软删除
+     */
+    public function userModelTest7(){
+//        $data = [
+//            "username"=>"Tinywan:".rand(00000,99999),
+//            "password"=>"password::".rand(55555,99999),
+//            "apikey_value"=>"756684177@qq.com",
+//            "description"=>"模型时间戳",
+//        ];
+//        //使用模型插入一条记录
+//        $user = User::create($data);
+//        var_dump($user);
+
+        //数据库更新操作
+        $userModel = User::get(79);
+        $userModel->status = 1;
+        $res = $userModel->save();
+        var_dump($res);
+    }
+
+    /**
+     * 软删除
+     */
+    public function userModelTest8(){
+        # 执行软删除
+        //$userModel = User::destroy(85); # success return 1
+        //var_dump($userModel);
+
+        # 根据ID字段获取软删除
+        //$res = User::withTrashed(true)->find(85);
+        //var_dump($res->getData());
+
+        # 获取所有被删除字段
+//        $resAll = User::onlyTrashed()->select();
+//        foreach ($resAll as $val){
+//            var_dump($val->getData());
+//        }
+
+        # 数据的真实删除
+        //$resBackup = User::destroy(85,true);
+        //var_dump($resBackup);
+
+        //第二种软删除
+//        $res2 = User::get(84);
+//        $resdel = $res2->delete();
+//        var_dump($resdel);
+
+        //第二种真实删除
+        $res2 = User::get(84);
+        $resdel = $res2->delete(true);
+        var_dump($resdel);
+
     }
 }
