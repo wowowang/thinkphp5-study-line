@@ -20,6 +20,13 @@ class Index extends Controller
     }
 
     /**
+     * 测试是否合并这里的部分
+     */
+    public function banckend(){
+
+    }
+
+    /**
      * view 使用
      * @return \think\response\View
      */
