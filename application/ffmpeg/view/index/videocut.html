@@ -208,13 +208,11 @@
         function first_ajax_request(start_time, end_time, old_name, new_name, edit_desc) {
             $.post(
                 "{:url('ffmpeg/Index/videoCutOperate')}",
-//                'jwphp/amai_my.php',
                 {
                     "start_time": start_time, "end_time": end_time,
                     "old_name": old_name, "new_name": new_name, "video_desc": edit_desc
                 },
                 function (cc) { //服务器传过来的数据
-                    // alert(old_name);
                     console.log(cc);
                     if (cc.status == 1) {
                         //第一次ajax请求成功  访问视频状态
@@ -231,41 +229,38 @@
         /**
          * 随后的ajax请求
          */
-        //        function next_ajax_request(new_name) {
-        //            $.post(
-        //                'jwphp/amai_nextRequest.php',
-        //                {"new_name": new_name},
-        //                function (data) { //服务器传过来的数据
-        //                    if (data) {
-        //                        //视频没有处理完成好
-        //                        if (data.status == -1) {
-        //                            // alert(cc.filename);
-        //                            if (max_request_length < 100) {
-        //                                setTimeout('next_ajax_request(new_name)', 5000);
-        //                            } else {
-        //                                alert('请求超时');
-        //                            }
-        //                            max_request_length++;
-        //                        } else if (data.status != 1) {
-        //                            alert('操作失败,请重试');//data.msg);
-        //                        } else {//视频已经检测到
-        //                            //获得视频名称添加div
-        //                            //alert('data.pid:'+data.pid);
-        //                            alert(data.desc + " 已经剪好,请在左侧列表中点击播放。");
-        //                            //add_li(data.filename);
-        //                            //{"status":1,"filename":"video\/user5\/1.mp4-1417533662088.mp4","id":"169","desc":"this is a test","image":"video\/user5\/1.mp4-1417533662088.mp4-snap.jpg"}
-        //                            //$("#nav").append("<ul><li><a target=\"_self\" href=\"javascript:openVideo('"+data.filename+"','"+data.id+"');\">"+data.desc+"</a></li></ul>");
-        //                            //$("#"+data.pid).append("<ul><li><a target=\"_self\" href=\"javascript:openVideo('"+data.filename+"','"+data.id+"');\">"+data.desc+"</a></li></ul>");
-        //
-        //                            $("#" + data.pid).append("<div class=\"leveltwo\" margin-left:10px id=\"" + data.id + "\"><ul><li><a target=\"_self\" href=\"javascript:openVideo('" + data.playpath + "','" + data.id + "');\">" + data.desc + "</a></li></ul></div>");
-        //                        }
-        //                    } else {
-        //                        alert('请求错误');
-        //                    }
-        //                },
-        //                'json'
-        //            )
-        //        }
+        function next_ajax_request(new_name) {
+            console.log('222222222222222');
+            $.post(
+                "{:url('ffmpeg/Index/videoNextRequest')}",
+                {"new_name": new_name},
+                function (data) { //服务器传过来的数据
+                    console.log(data);
+                    if (data) {
+                        //视频没有处理完成好
+                        if (data.status == -1) {
+                            // alert(cc.filename);
+                            if (max_request_length < 100) {
+                                setTimeout('next_ajax_request(new_name)', 5000);
+                            } else {
+                                alert('请求超时');
+                            }
+                            max_request_length++;
+                        } else if (data.status != 1) {
+                            alert('操作失败,请重试');
+                        } else {
+                            //视频已经检测到
+                            alert(data.desc + " 已经剪好,请在左侧列表中点击播放。");
+
+                            $("#" + data.pid).append("<div class=\"leveltwo\" margin-left:10px id=\"" + data.id + "\"><ul><li><a target=\"_self\" href=\"javascript:openVideo('" + data.playpath + "','" + data.id + "');\">" + data.desc + "</a></li></ul></div>");
+                        }
+                    } else {
+                        alert('请求错误');
+                    }
+                },
+                'json'
+            )
+        }
 
         /**
          * 动态添加div
@@ -340,6 +335,22 @@
             }
         }
 
+        /**
+         *  发布视频
+         */
+        function publishVideo() {
+            console.log("发布视频 " + old_name);
+            if(!confirm("确认发布视频吗？")) return ;
+            var url = "{:url('ffmpeg/Index/publishVideo')}";
+            var data = {
+                "videoid": old_name
+            };
+            var  success = function (response) {
+                console.log(response);
+                alert("code:" + response.code + " msg: " + response.msg);
+            }
+            $.post(url,data,success,'json');
+        }
     </script>
 </head>
 

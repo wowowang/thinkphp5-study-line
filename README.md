@@ -48,8 +48,8 @@ ffmpeg
     ```
 ##  请求和相应
 +   $request 将会打印所有请求信息
-##  input助手函数
-+   
+##  第三方依赖库
++   [PHP-FFMpeg](https://github.com/PHP-FFMpeg/PHP-FFMpeg)
 
 
 
