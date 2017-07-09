@@ -1,11 +1,14 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: tinywan
- * Date: 2017/6/24
- * Time: 22:57
- */
+/** .-------------------------------------------------------------------
+ * |  Github: https://github.com/Tinywan
+ * |  Blog: http://www.cnblogs.com/Tinywan
+ * |-------------------------------------------------------------------
+ * |  Author: Tinywan(SHaoBo Wan)
+ * |  Date: 2017/1/20
+ * |  Time: 16:25
+ * |  Mail: Overcome.wan@Gmail.com
+ * |  Created by PhpStorm.
+ * '-------------------------------------------------------------------*/
 
 namespace app\backend\controller;
 
@@ -42,7 +45,7 @@ class Index extends Controller
         #【2】
         $this->view->version = "V0.01";
         #【3】
-        View::share("viewName", "use think\\View");
+        View::share("viewName", "use think\\view");
         #【4】
         return $this->fetch("indexdemo",
             [

@@ -702,7 +702,7 @@ jQuery(function() {
 			},
 			'viewSource' : {
 				icon : 'icon-code',
-				title : 'View Source'
+				title : 'view Source'
 			}
 		}
 		

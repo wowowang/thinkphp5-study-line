@@ -10,7 +10,7 @@
 $.jgrid = $.jgrid || {};
 $.extend($.jgrid,{
 	defaults : {
-		recordtext: "View {0} - {1} of {2}",
+		recordtext: "view {0} - {1} of {2}",
 	    emptyrecords: "No records to view",
 		loadtext: "Φόρτωση...",
 		pgtext : "Page {0} of {1}"
@@ -47,7 +47,7 @@ $.extend($.jgrid,{
 		}
 	},
 	view : {
-	    caption: "View Record",
+	    caption: "view Record",
 	    bClose: "Close"
 	},
 	del : {
@@ -70,7 +70,7 @@ $.extend($.jgrid,{
 	    alertcap: "Προσοχή",
 	    alerttext: "Δεν έχετε επιλέξει εγγραφή",
 		viewtext: "",
-		viewtitle: "View selected row"
+		viewtitle: "view selected row"
 	},
 	col : {
 	    caption: "Εμφάνιση / Απόκρυψη Στηλών",

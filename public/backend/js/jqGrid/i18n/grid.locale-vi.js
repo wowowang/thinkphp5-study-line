@@ -10,7 +10,7 @@
 $.jgrid = $.jgrid || {};
 $.extend($.jgrid,{
 	defaults : {
-		recordtext: "View {0} - {1} of {2}",
+		recordtext: "view {0} - {1} of {2}",
 		emptyrecords: "Không có dữ liệu",
 		loadtext: "Đang nạp dữ liệu...",
 		pgtext : "Trang {0} trong tổng số {1}"

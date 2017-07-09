@@ -45,7 +45,7 @@ class Index extends Controller
     }
 
     /**
-     * User Model
+     * User model
      */
     public function userModelTest1(){
         // [1]

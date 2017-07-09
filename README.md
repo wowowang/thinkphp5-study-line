@@ -48,8 +48,23 @@ ffmpeg
     ```
 ##  请求和相应
 +   $request 将会打印所有请求信息
-##  input助手函数
-+   
++   命令行创建一个控制器（backend模块的common控制器）：php think make:controller backend/Common --plain
+##  功能添加
++   支付宝即时到账：`http://test.thinkphp5-ffmpeg.com/frontend/AliPay/show`
+
+##  命令行
++ 命令行新建一个控制器：php think make:controller backend/Category --plain
+
+## URL路由
++   a 连接：`<a href="{:url('backend/entry/modpass')}">`
++   from 表单提交：`<form action="/backend/login/forgotPassword" method="post">`
+
+## 功能添加
++   邮箱注册、登录、找回密码、忘记密码功能
++   分类管理
++   支付宝即时到账
+
+
 
 
 
