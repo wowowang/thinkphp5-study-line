@@ -25,10 +25,6 @@ return [
         'fontSize' => 30,
         // 是否画混淆曲线
         'useCurve' => true,
-        'useNoise' => true,
-        //使用中文验证码
-        'useZh' => true,
-
         // 验证码图片高度
         'imageH'   => 50,
         // 验证码图片宽度

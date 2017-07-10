@@ -30,7 +30,7 @@ class Index extends Controller
      */
     public function indexView()
     {
-        return view();
+        return $this->fetch();
     }
 
     /**
