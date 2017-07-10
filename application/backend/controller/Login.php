@@ -9,12 +9,12 @@
  * |  Mail: Overcome.wan@Gmail.com
  * |  Created by PhpStorm.
  * '-------------------------------------------------------------------*/
+
 namespace app\backend\controller;
 
 use app\common\model\Admin;
 use Faker\Factory;
 use think\Controller;
-use think\Db;
 use think\Request;
 
 class Login extends Controller
@@ -41,8 +41,6 @@ class Login extends Controller
                 exit;
             }
         }
-        //2.
-        //3.
         return $this->fetch("index");
     }
 
@@ -63,6 +61,7 @@ class Login extends Controller
 
     /**
      * 邮箱注册URL验证
+     * @param Request $request
      */
     public function emailRegisterUrlValid(Request $request)
     {
@@ -72,7 +71,7 @@ class Login extends Controller
                 //success 把目前的邮箱地址保存在session中
                 $this->success($res['msg'], "backend/entry/index");
             } else {
-                $this->error($res['msg'],"backend/login/login");
+                $this->error($res['msg'], "backend/login/login");
             }
         }
     }
@@ -114,6 +113,7 @@ class Login extends Controller
 
     /**
      * 根据邮箱修改密码界面
+     * @param Request $request
      */
     public function reSetPassword(Request $request)
     {
@@ -132,7 +132,7 @@ class Login extends Controller
     }
 
     /**
-     * tuichu
+     * 退出登录
      */
     public function logout()
     {

@@ -119,4 +119,5 @@ class Index extends Controller
         $this->assign('title',"Composer安装");
         return $this->fetch('index');
     }
+
 }

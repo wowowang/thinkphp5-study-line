@@ -11,7 +11,9 @@
  * '-------------------------------------------------------------------*/
 namespace app\api\controller;
 
-use common\BaseRedis;
+use Flc\Alidayu\App;
+use Flc\Alidayu\Client;
+use Flc\Alidayu\Requests\AlibabaAliqinFcSmsNumSend;
 use think\Controller;
 use think\Request;
 
@@ -55,18 +57,20 @@ class Index extends Controller
 
     public function notify()
     {
-        if (false === Request::instance()->isGet()) {
-            exit('不是 GET 请求');
-        }
-        $request = Request::instance();
-        $action = $request->get('action');
-        $ip = $request->get('ip');
-        $id = $request->get('id');
-        $app = $request->get('app');
-        $appname = $request->get('appname');
-        $time = $request->get('time');
-        $usrargs = $request->get('usrargs');
-        $node = $request->get('node');
+        // 配置信息
+        $config = [
+            'app_key'    => '23651008',
+            'app_secret' => '1ef044c5017a0337da3b43e3a1236822',
+        ];
+        $client = new Client(new App($config));
+        $req    = new AlibabaAliqinFcSmsNumSend();
+        $req->setRecNum("13669361192")
+            ->setSmsParam([
+                'number' => rand(100000, 999999)
+            ])
+            ->setSmsFreeSignName("弍萬")
+            ->setSmsTemplateCode("SMS_50285067");
+        print_r($client->execute($req));
 
     }
 }

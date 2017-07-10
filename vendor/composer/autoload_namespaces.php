@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
-    'Pimple' => array($vendorDir . '/pimple/pimple/src'),
     'Phpml' => array($vendorDir . '/php-ai/php-ml/src'),
     'Neutron' => array($vendorDir . '/neutron/temporary-filesystem/src'),
     'FFMpeg' => array($vendorDir . '/php-ffmpeg/php-ffmpeg/src'),

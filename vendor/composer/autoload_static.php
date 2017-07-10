@@ -4,21 +4,17 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita8c3471b204ecec812d785216ed8ab83
+class ComposerStaticInitee33ab6d7d4ede583edbaf1fcd83c759
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '9b552a3cc426e3287cc811caefa3cf53' => __DIR__ . '/..' . '/topthink/think-helper/src/helper.php',
         '0f066c7cf996f26fedf8f5e90a916a95' => __DIR__ . '/..' . '/houdunwang/config/src/helper.php',
+        'a1b9718204ff2589da0807dfa6153c7a' => __DIR__ . '/..' . '/houdunwang/crypt/src/helper.php',
         '1cfd2761b63b0a29ed23657ea394cb2d' => __DIR__ . '/..' . '/topthink/think-captcha/src/helper.php',
         'ddc3cd2a04224f9638c5d0de6a69c7e3' => __DIR__ . '/..' . '/topthink/think-migration/src/config.php',
         'cc56288302d9df745d97c934d6a6e5f0' => __DIR__ . '/..' . '/topthink/think-queue/src/common.php',
         '72c97b53391125cae04082a81029f42d' => __DIR__ . '/..' . '/topthink/think-testing/src/config.php',
-        '9e090711773bfc38738f5dbaee5a7f14' => __DIR__ . '/..' . '/overtrue/wechat/src/Payment/helpers.php',
-        'a1b9718204ff2589da0807dfa6153c7a' => __DIR__ . '/..' . '/houdunwang/crypt/src/helper.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -55,39 +51,21 @@ class ComposerStaticInita8c3471b204ecec812d785216ed8ab83
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\Yaml\\' => 23,
             'Symfony\\Component\\Process\\' => 26,
-            'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Filesystem\\' => 29,
             'Symfony\\Component\\DomCrawler\\' => 29,
-            'Symfony\\Bridge\\PsrHttpMessage\\' => 30,
         ),
         'P' => 
         array (
             'Psr\\Log\\' => 8,
-            'Psr\\Http\\Message\\' => 17,
-            'Psr\\Container\\' => 14,
             'Phinx\\' => 6,
-        ),
-        'O' => 
-        array (
-            'Overtrue\\Socialite\\' => 19,
         ),
         'M' => 
         array (
             'Monolog\\' => 8,
         ),
-        'G' => 
-        array (
-            'GuzzleHttp\\Psr7\\' => 16,
-            'GuzzleHttp\\Promise\\' => 19,
-            'GuzzleHttp\\' => 11,
-        ),
         'F' => 
         array (
             'Faker\\' => 6,
-        ),
-        'E' => 
-        array (
-            'EasyWeChat\\' => 11,
         ),
         'D' => 
         array (
@@ -176,10 +154,6 @@ class ComposerStaticInita8c3471b204ecec812d785216ed8ab83
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
         ),
-        'Symfony\\Component\\HttpFoundation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/http-foundation',
-        ),
         'Symfony\\Component\\Filesystem\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/filesystem',
@@ -188,53 +162,21 @@ class ComposerStaticInita8c3471b204ecec812d785216ed8ab83
         array (
             0 => __DIR__ . '/..' . '/symfony/dom-crawler',
         ),
-        'Symfony\\Bridge\\PsrHttpMessage\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
-        ),
         'Psr\\Log\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
-        ),
-        'Psr\\Http\\Message\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-        ),
-        'Psr\\Container\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/psr/container/src',
         ),
         'Phinx\\' => 
         array (
             0 => __DIR__ . '/..' . '/topthink/think-migration/phinx/src/Phinx',
         ),
-        'Overtrue\\Socialite\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/overtrue/socialite/src',
-        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'GuzzleHttp\\Psr7\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'GuzzleHttp\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-        ),
-        'GuzzleHttp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
-        ),
-        'EasyWeChat\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/overtrue/wechat/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -252,10 +194,6 @@ class ComposerStaticInita8c3471b204ecec812d785216ed8ab83
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
-            ),
-            'Pimple' => 
-            array (
-                0 => __DIR__ . '/..' . '/pimple/pimple/src',
             ),
             'Phpml' => 
             array (
@@ -752,10 +690,10 @@ class ComposerStaticInita8c3471b204ecec812d785216ed8ab83
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita8c3471b204ecec812d785216ed8ab83::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita8c3471b204ecec812d785216ed8ab83::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInita8c3471b204ecec812d785216ed8ab83::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInita8c3471b204ecec812d785216ed8ab83::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitee33ab6d7d4ede583edbaf1fcd83c759::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitee33ab6d7d4ede583edbaf1fcd83c759::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitee33ab6d7d4ede583edbaf1fcd83c759::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitee33ab6d7d4ede583edbaf1fcd83c759::$classMap;
 
         }, null, ClassLoader::class);
     }

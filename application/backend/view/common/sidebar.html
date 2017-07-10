@@ -40,17 +40,43 @@
                 <span class="menu-text"> 在线开发手册 </span>
             </a>
         </li>
+
+        <li>
+            <a href="#" class="dropdown-toggle">
+                <i class="icon-cog"></i>
+                <span class="menu-text"> 系统管理 </span>
+
+                <b class="arrow icon-angle-down"></b>
+            </a>
+
+            <ul class="submenu">
+                <li>
+                    <a href="{:url('backend/system/config')}">
+                        <i class="icon-double-angle-right"></i>
+                        系统配置
+                    </a>
+                </li>
+
+                <li>
+                    <a href="{:url('backend/system/actionlog')}">
+                        <i class="icon-double-angle-right"></i>
+                        日志管理
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <li>
             <a href="{:url('backend/category/index')}">
                 <i class="icon-text-width"></i>
-                <span class="menu-text"> 栏目分类 </span>
+                <span class="menu-lock"> 栏目管理 </span>
             </a>
         </li>
 
         <li>
             <a href="#" class="dropdown-toggle">
                 <i class="icon-desktop"></i>
-                <span class="menu-text"> 支付 </span>
+                <span class="menu-text"> 支付管理 </span>
 
                 <b class="arrow icon-angle-down"></b>
             </a>

@@ -13,15 +13,25 @@ class Admin extends Model
 {
     /**
      * 获取随机姓名
+     * @return string
+     * @static
      */
     public static function getRandUserName()
     {
         $faker = Factory::create($locale = 'zh_CN');
-        return $faker->country.'-'.$faker->name;
+        return $faker->country . '-' . $faker->name;
     }
-    //主键
+
+    /**
+     * 主键
+     * @var string
+     */
     protected $pk = "id";
-    // 设置当前模型对应的完整数据表名称
+
+    /**
+     * 设置当前模型对应的完整数据表名称
+     * @var string
+     */
     protected $table = "tinywan_user";
 
     /**
@@ -43,14 +53,18 @@ class Admin extends Model
             // 数据库中为匹配到
             return ['valid' => 0, 'msg' => "邮箱或者密码错误"];
         }
-        if($infoUser["enable"] == 0) return ['valid' => 0, 'msg' => "该账号还没有激活，请登录邮箱".$infoUser["email"].'立即激活'];
+        if ($infoUser["enable"] == 0) return ['valid' => 0, 'msg' => "该账号还没有激活，请登录邮箱" . $infoUser["email"] . '立即激活'];
         // 3 记录session
         session('admin.admin_id', $infoUser['id']);
         session('admin.username', $infoUser['username']);
         return ['valid' => 1, 'msg' => "登录成功"];
     }
 
-
+    /**
+     * 邮箱注册
+     * @param $data
+     * @return array
+     */
     public function emailRegister($data)
     {
         // 1 验证数据
@@ -77,13 +91,15 @@ class Admin extends Model
             'password' => md5($data["password"]),
             'email' => $data["email"],
             'password_token' => $passwordToken,
-            'loginip' => get_client_ip(),
+            'loginip' => "127.0.0.1",
         ])->save();
         if (!$res) return ['valid' => 0, 'msg' => "数据库添加数据失败"];
         // 4 发送邮件
 
         $emailSendDomain = config('email.EMAIL_SEND_DOMAIN');
-        $link = "http://{$emailSendDomain}/backend/login/emailRegisterUrlValid?email={$data['email']}&passwordToken={$passwordToken}&expireTime=$time";
+        $checkstr = base64_encode($data['email']);
+        $auth_key = get_auth_key($data['email']);
+        $link = "http://{$emailSendDomain}/backend/login/emailRegisterUrlValid?checkstr=$checkstr&auth_key={$auth_key}";
         $str = <<<html
             您好！<p></p>
             感谢您在Tinywan世界注册帐户！<p></p>
@@ -98,28 +114,27 @@ html;
     }
 
     /**
+     * checkstr=NzU2Njg0MTc3QHFxLmNvbQ==&amp;auth_key=1499661824-0-0-0c3729355a38452f491584711b76e46d
      * 邮箱注册回调地址的有效性检测 emailRegisterUrlValid
      * @param $data
      * @return array
      */
     public function emailRegisterUrlValid($data)
     {
+        $email = base64_decode($data['checkstr']);
+        // 签名验证
+        $res = check_auth_key($email, $data['auth_key']);
         // 1 邮箱过期时间
-        if (time() - $data["expireTime"] > 24 * 60 * 60) return ['valid' => 0, 'msg' => "该链接地址已经过期，无效的链接地址"];
-
+        if (!$res["valid"]) return ['valid' => 0, 'msg' => $res["msg"]];
         // 2 验证邮箱
-        $userInfo = $this->where('email', $data['email'])->where('enable', 0)->find();
+        $userInfo = $this->where('email', $email)->where('enable', 0)->find();
         if (!$userInfo) return ['valid' => 0, 'msg' => "该账户已被激活或者该账户不存在"];
-        // 3 检查url地址有效性
-        $passwordToken = md5($userInfo['email'] . $userInfo['password'] . $data["expireTime"]);
-        if ($passwordToken != $userInfo['password_token']) return ['valid' => 0, 'msg' => "邮箱地址签名错误"];
-
-        // 4、修改数据库字段信息
+        // 3、修改数据库字段信息
         $res = $this->save([
             'enable' => 1  # 表示已经激活
         ], [$this->pk => $userInfo['id']]);
         if (!$res) return ['valid' => 0, 'msg' => "邮件激活失败"];
-        // 5 记录session
+        // 4 记录session
         session('admin.admin_id', $userInfo['id']);
         session('admin.username', $userInfo['username']);
         return ['valid' => 1, 'msg' => "邮箱激活成功，正在跳转到主页面..."];
@@ -181,11 +196,12 @@ html;
         // 2 该邮箱是否注册
         $userInfo = $this->where('email', $data['email'])->find();
         if (!$userInfo) return ['valid' => 0, 'msg' => "该邮箱尚未注册"];
-        // 3 发送邮件
-        $passwordToken = md5($userInfo['id'] . $userInfo['username'] . $userInfo['password']);
         // 邮箱配置文件
         $emailSendDomain = config('email.EMAIL_SEND_DOMAIN');
-        $link = "http://{$emailSendDomain}/backend/login/checkEmailUrlValid?email={$data['email']}&passwordToken={$passwordToken}";
+        $checkstr = base64_encode($data['email']);
+        $auth_key = get_auth_key($data['email']);
+        $link = "http://{$emailSendDomain}/backend/login/checkEmailUrlValid?checkstr=$checkstr&auth_key={$auth_key}";
+
         $str = "您好!{$userInfo['username']}， 请点击下面的链接重置您的密码：<p></p>" . $link;
         $sendResult = send_email($data['email'], "Tinywan世界重置密码", $str);
         if ($sendResult['error'] == 1) return ['valid' => 0, 'msg' => "邮件发送失败，请联系管理员"];
@@ -204,21 +220,23 @@ html;
      */
     public function checkEmailUrlValid($data)
     {
-        // 1 验证邮箱
-        $userInfo = $userInfo = $this->where('email', $data['email'])->find();
+        // 1 检查url地址有效性
+        $email = base64_decode($data['checkstr']);
+        $res = check_auth_key($email, $data['auth_key']);
+        if (!$res["valid"]) return ['valid' => 0, 'msg' => $res["msg"]];
+        // 2 验证邮箱
+        $userInfo = $userInfo = $this->where('email', $email)->find();
         if (!$userInfo) return ['valid' => 0, 'msg' => "该邮箱尚未注册"];
-        // 2 检查url地址有效性
-        $passwordToken = md5($userInfo['id'] . $userInfo['username'] . $userInfo['password']);
-        if ($passwordToken != $data['passwordToken']) return ['valid' => 0, 'msg' => "邮箱地址签名错误"];
-        // 3、邮箱过期时间
-        if (time() - $userInfo['password_time'] > 24 * 60 * 60) return ['valid' => 0, 'msg' => "该链接地址已经过期，无效的链接地址"];
-        // 4、验证通过，跳转到密码修改界面
-        session($data['email'], $data['email']);
-        return ['valid' => 1, 'email' => $data['email']];
+        // 3、验证通过，跳转到密码修改界面
+        session('admin.admin_id', $userInfo['id']);
+        session('admin.username', $userInfo['username']);
+        return ['valid' => 1, 'email' => $email];
     }
 
     /**
      * 邮箱重设密码
+     * @param $data
+     * @return array
      */
     public function reSetPassword($data)
     {

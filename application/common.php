@@ -36,6 +36,47 @@ function get_uri($url)
 }
 
 /**
+ * 生成 auth_key
+ * @param string $check_str
+ * @return string
+ */
+function get_auth_key($check_str)
+{
+    if(empty($check_str)) return ['valid' => 0, 'msg' => "参数不合适"];
+    // 1 过期时间
+    $send_email_expire_time = config('email.EMAIL_SEND_EXPIRE_TIME');
+    // 2 私有密钥
+    $send_email_private_key = config('email.EMAIL_SEND_PRIVATE_KEY');
+    $timestatmp = strtotime(date('Y-m-d H:i:s', strtotime("+" . $send_email_expire_time . "minute")));
+    $uuid = 0;
+    $uid = 0;
+    $hash_value = md5($check_str . '-' . $timestatmp . '-' . $uuid . '-' . $uid . '-' . $send_email_private_key);
+    $auth_key = $timestatmp . '-' . $uuid . '-' . $uid . '-' . $hash_value;
+    return $auth_key;
+}
+
+/**
+ * 邮箱地址有效期验证
+ * @param string $check_str
+ * @param string $auth_key
+ * @return array
+ */
+function check_auth_key($check_str, $auth_key)
+{
+    if(empty($check_str) && empty($auth_key)) return ['valid' => 0, 'msg' => "参数不合适"];
+    $send_email_expire_time = substr($auth_key, 0, 10);
+    if ($send_email_expire_time < time()) return ['valid' => 0, 'msg' => "该URL地址已经过期了"];
+    $uuid = 0;
+    $uid = 0;
+    $send_email_private_key = config('email.EMAIL_SEND_PRIVATE_KEY'); // 私有密钥
+    $sequest_hash_value = substr($auth_key, -32);
+//    return $sequest_hash_value;
+    $hash_value = md5($check_str . '-' . $send_email_expire_time . '-' . $uuid . '-' . $uid . '-' . $send_email_private_key);
+    if ($hash_value != $sequest_hash_value) return ['valid' => 0, 'msg' => "URL地址签名错误"];
+    return ['valid' => 1, 'msg' => "签名验证通过"];
+}
+
+/**
  * 发送邮件
  * @param  array $address 需要发送的邮箱地址 发送给多个地址需要写成数组形式
  * @param  string $subject 标题
